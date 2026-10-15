@@ -1,148 +1,156 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#082f57">
-  <title>Catalyst Wings | Local SEO & Digital Growth</title>
-  <meta name="description" content="Catalyst Wings helps local businesses improve Google visibility with local SEO, Google Business Profile optimization, technical SEO, and content strategy.">
-  <link rel="canonical" href="https://example.com/">
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="preconnect" href="https://images.unsplash.com">
-  <link rel="stylesheet" href="styles.css">
-  <script type="application/ld+json">
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.main-nav');
+
+if (menuToggle && nav) {
+  menuToggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    menuToggle.textContent = open ? '×' : '☰';
+  });
+
+  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Open navigation');
+    menuToggle.textContent = '☰';
+  }));
+}
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Original 3-slide hero carousel
+const heroSlides = [
   {
-    "@context":"https://schema.org",
-    "@type":"ProfessionalService",
-    "name":"Catalyst Wings",
-    "description":"Local SEO, Google Business Profile optimization, technical SEO and content strategy.",
-    "telephone":"+92 300 4947357",
-    "email":"catalystwing@gmail.com",
-    "areaServed":"Pakistan",
-    "sameAs":[
-      "https://www.facebook.com/catalystwings",
-      "https://www.instagram.com/catalystwing/",
-      "https://www.pinterest.com/catalystwing/_profile/"
-    ]
+    eyebrow: "SEARCH VISIBILITY. REAL BUSINESS GROWTH.",
+    title: 'Get found by the customers <em>already looking</em> for you.',
+    text: "Practical SEO strategies that help local businesses strengthen Google visibility, reach the right audience, and turn more searches into meaningful enquiries.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
+    alt: "Digital marketing analytics dashboard on a laptop",
+    proofTitle: "Built around your business",
+    proofText: "Clear priorities. Useful reporting. No empty promises.",
+    cardTitle: "Visibility with purpose",
+    cardText: "Strategy before shortcuts",
+    card2Title: "Search-ready growth",
+    card2Text: "Local · Technical · Content"
+  },
+  {
+    eyebrow: "LOCAL SEO. MORE RELEVANT DISCOVERY.",
+    title: 'Help nearby customers <em>find your business</em> online.',
+    text: "Make your local presence stronger with location-focused SEO, useful service pages, and a better-optimized Google Business Profile.",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    alt: "Digital marketing professional working at a laptop",
+    proofTitle: "Focused on local visibility",
+    proofText: "Reach people searching for services like yours.",
+    cardTitle: "Local search strategy",
+    cardText: "Relevant searches, clearer signals",
+    card2Title: "Closer to your customers",
+    card2Text: "Local pages · Maps · Profiles"
+  },
+  {
+    eyebrow: "TECHNICAL SEO. CONTENT THAT HELPS.",
+    title: 'Build a stronger website with <em>smarter SEO.</em>',
+    text: "Improve the foundations behind your website with technical checks, helpful content, and on-page improvements made for people and search engines.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85",
+    alt: "Website performance analytics dashboard",
+    proofTitle: "A plan you can understand",
+    proofText: "Prioritized improvements and transparent next steps.",
+    cardTitle: "Stronger website foundations",
+    cardText: "Technical health matters",
+    card2Title: "Content with a purpose",
+    card2Text: "Useful · Clear · Search-friendly"
   }
-  </script>
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="#home" aria-label="Catalyst Wings home"><img src="assets/catalyst-wings-logo.jpg" alt="Catalyst Wings logo"></a>
-      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#process">Our Process</a><a href="#faqs">FAQs</a><a class="nav-cta" href="#contact">Get a free audit <span>↗</span></a>
-      </nav>
-    </div>
-  </header>
+];
 
-  <main id="main">
-    <section class="hero section" id="home">
-      <div class="hero-glow"></div>
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="eyebrow-dot"></span> <span id="hero-eyebrow">SEARCH VISIBILITY. REAL BUSINESS GROWTH.</span></p>
-          <h1 id="hero-title">Get found by the customers <em>already looking</em> for you.</h1>
-          <p class="hero-text" id="hero-text">Practical SEO strategies that help local businesses strengthen Google visibility, reach the right audience, and turn more searches into meaningful enquiries.</p>
-          <div class="hero-actions"><a class="button button-primary" href="#contact">Request a free SEO review <span>↗</span></a><a class="text-link" href="#services">Explore our services <span>→</span></a></div>
-          <div class="hero-proof"><div class="avatar-stack"><span>C</span><span>W</span><span>SEO</span></div><p><strong id="hero-proof-title">Built around your business</strong><br><small id="hero-proof-text">Clear priorities. Useful reporting. No empty promises.</small></p></div>
-          <div class="hero-slider-controls" aria-label="Hero slider controls">
-            <div class="slider-dots" role="group" aria-label="Choose a slide">
-              <button class="slider-dot active" type="button" aria-label="Show slide 1" aria-current="true" data-slide="0"></button>
-              <button class="slider-dot" type="button" aria-label="Show slide 2" data-slide="1"></button>
-              <button class="slider-dot" type="button" aria-label="Show slide 3" data-slide="2"></button>
-            </div>
-            <div class="slider-arrows">
-              <button type="button" id="hero-prev" aria-label="Previous slide">←</button>
-              <button type="button" id="hero-next" aria-label="Next slide">→</button>
-            </div>
-            <span class="slider-counter" id="hero-counter">01 <i>/</i> 03</span>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <img class="hero-image" id="hero-image" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" loading="eager" alt="SEO analytics dashboard">
-          <div class="floating-card card-top"><span class="metric-icon">↗</span><div><strong id="hero-card-title">Visibility with purpose</strong><small id="hero-card-text">Strategy before shortcuts</small></div></div>
-          <div class="floating-card card-bottom"><span class="chart-icon">⌁</span><div><strong id="hero-card2-title">Search-ready growth</strong><small id="hero-card2-text">Local · Technical · Content</small></div></div>
-          <div class="hero-stamp"><span>SEO</span><small>SMARTER<br>SEARCH</small></div>
-        </div>
-      </div>
-      <div class="container hero-bottom"><span>LOCAL SEO</span><i></i><span>GOOGLE BUSINESS PROFILE</span><i></i><span>TECHNICAL SEO</span><i></i><span>CONTENT STRATEGY</span></div>
-    </section>
+const heroRoot = document.querySelector(".hero");
+const heroTitle = document.getElementById("hero-title");
+const heroImage = document.getElementById("hero-image");
+const heroDots = Array.from(document.querySelectorAll(".slider-dot"));
+const heroCounter = document.getElementById("hero-counter");
 
-    <section class="section intro-section" id="about">
-      <div class="container intro-grid">
-        <div><p class="eyebrow">ABOUT CATALYST WINGS</p><h2>Good marketing starts with <em>being discoverable.</em></h2></div>
-        <div class="intro-content"><p>At Catalyst Wings, we help businesses build a stronger presence in search with clear, practical SEO work. We look at how customers search, how your website performs, and what can make your business easier to find and trust.</p><p>Every business has different goals. Our approach begins with understanding yours, identifying the most useful opportunities, and creating a realistic plan you can measure over time.</p><a class="text-link dark-link" href="#contact">Let's talk about your goals <span>→</span></a></div>
-      </div>
-    </section>
+let currentHeroSlide = 0;
+let heroTimer = null;
 
-    <section class="section services-section" id="services">
-      <div class="container">
-        <div class="section-heading"><div><p class="eyebrow">WHAT WE DO</p><h2>SEO that works on the <em>details.</em></h2></div><p>From your Google Business Profile to your website's technical foundations, we focus on the work that supports long-term search performance.</p></div>
-        <div class="service-grid">
-          <article class="service-card service-featured"><div class="service-number">01 / LOCAL SEARCH</div><img class="service-photo" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Local SEO specialist reviewing digital marketing data" loading="lazy" onerror="this.onerror=null;this.src='assets/service-fallback.svg'"><div class="service-icon">⌖</div><h3>Local SEO</h3><p>Improve your local search presence with location-focused pages, relevant keyword research, consistent business details, and a plan built around nearby customers.</p><a href="#contact" aria-label="Ask about Local SEO">Discuss this service <span>↗</span></a><div class="card-orbit"></div></article>
-          <article class="service-card"><div class="service-number">02 / MAP VISIBILITY</div><img class="service-photo" src="https://images.unsplash.com/photo-1556740714-a8395b3bf30f?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Business owner using a laptop for online business management" loading="lazy" onerror="this.onerror=null;this.src='assets/service-fallback.svg'"><div class="service-icon">◎</div><h3>Google Business Profile</h3><p>Strengthen your profile with accurate categories, useful service details, photos, posts, and a customer review response process.</p><a href="#contact">Discuss this service <span>↗</span></a></article>
-          <article class="service-card"><div class="service-number">03 / WEBSITE HEALTH</div><img class="service-photo" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Server racks representing website technical infrastructure" loading="lazy" onerror="this.onerror=null;this.src='assets/service-fallback.svg'"><div class="service-icon">⌘</div><h3>Technical SEO</h3><p>Find and prioritize crawlability, indexing, page experience, internal linking, metadata, and other technical issues that can affect search.</p><a href="#contact">Discuss this service <span>↗</span></a></article>
-          <article class="service-card"><div class="service-number">04 / CONTENT</div><img class="service-photo" src="https://images.unsplash.com/photo-1455390582262-044cacf24f50?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Notebook and writing tools for SEO content planning" loading="lazy" onerror="this.onerror=null;this.src='assets/service-fallback.svg'"><div class="service-icon">✳</div><h3>SEO Content Strategy</h3><p>Plan helpful service pages, location content, and FAQs around real customer questions instead of repetitive keyword stuffing.</p><a href="#contact">Discuss this service <span>↗</span></a></article>
-          <article class="service-card"><div class="service-number">05 / ON-PAGE</div><img class="service-photo" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="SEO team reviewing website page improvements" loading="lazy" onerror="this.onerror=null;this.src='assets/service-fallback.svg'"><div class="service-icon">↗</div><h3>On-Page Optimization</h3><p>Improve page titles, headings, page structure, internal links, and content relevance so visitors and search engines understand each page.</p><a href="#contact">Discuss this service <span>↗</span></a></article>
-          <article class="service-card service-image-card"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&amp;fit=crop&amp;w=900&amp;q=85" loading="lazy" alt="Marketing team discussing a digital growth strategy" loading="lazy"><div class="image-card-overlay"><p>Not sure where to start?</p><h3>Let's find your biggest SEO opportunity.</h3><a href="#contact">Get in touch <span>↗</span></a></div></article>
-        </div>
-      </div>
-    </section>
+function showHeroSlide(index) {
+  if (!heroRoot || !heroTitle || !heroImage) return;
 
-    <section class="section authority-section" id="process">
-      <div class="container authority-grid">
-        <div class="authority-image-wrap"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" loading="lazy" alt="Analytics dashboard on a computer screen" loading="lazy"><div class="image-note"><span class="note-mark">✓</span><p><strong>Evidence-led decisions</strong><br><small>Measure, learn, improve.</small></p></div></div>
-        <div class="authority-copy"><p class="eyebrow">A CLEARER WAY FORWARD</p><h2>Strategy you can understand. <em>Progress you can track.</em></h2><p>SEO is a process, not a switch. We prioritize useful improvements, explain what they do, and track relevant indicators so you can make informed decisions.</p>
-          <div class="process-list"><div><span>01</span><p><strong>Discover</strong><small>Understand your goals, audience, website, and current search presence.</small></p></div><div><span>02</span><p><strong>Prioritize</strong><small>Identify the most valuable opportunities and build a practical roadmap.</small></p></div><div><span>03</span><p><strong>Improve</strong><small>Work through on-page, local, technical, and content recommendations.</small></p></div><div><span>04</span><p><strong>Review</strong><small>Monitor available data and refine the strategy as results develop.</small></p></div></div>
-        </div>
-      </div>
-    </section>
+  currentHeroSlide = (index + heroSlides.length) % heroSlides.length;
+  const slide = heroSlides[currentHeroSlide];
 
-    <section class="section trust-section">
-      <div class="container trust-grid"><div><p class="eyebrow">OUR COMMITMENT</p><h2>Trust is earned through <em>transparent work.</em></h2><p>We believe good SEO should be useful, honest, and aligned with your business. No guaranteed rankings or overnight-success claims—just a clear plan and work you can review.</p></div><div class="trust-points"><div><span>✓</span><div><h3>People-first content</h3><p>Useful information written for customers, not just algorithms.</p></div></div><div><span>✓</span><div><h3>Ethical SEO practices</h3><p>No promises of instant rankings or manipulative shortcuts.</p></div></div><div><span>✓</span><div><h3>Clear communication</h3><p>Understand priorities, next steps, and what is being measured.</p></div></div></div></div>
-    </section>
+  heroRoot.classList.add("hero-changing");
 
-    <section class="section faq-section" id="faqs">
-      <div class="container faq-grid"><div><p class="eyebrow">QUESTIONS, ANSWERED</p><h2>SEO doesn't have to feel <em>complicated.</em></h2><p>Here are answers to common questions. If your situation is different, send us a message and tell us what you need.</p><a class="text-link dark-link" href="#contact">Ask a question <span>→</span></a></div>
-        <div class="faq-list">
-          <details><summary>What is local SEO?</summary><p>Local SEO helps a business become more relevant and discoverable for searches connected to its services and locations. It can include Google Business Profile improvements, location pages, reviews, local content, and consistent business information.</p></details>
-          <details><summary>How long does SEO take to show results?</summary><p>Timing varies with competition, website condition, location, and the work required. Some improvements can be noticed sooner, while meaningful organic growth often takes several months. No ethical provider can guarantee a specific ranking or date.</p></details>
-          <details><summary>Can you optimize my Google Business Profile?</summary><p>Yes. We can review profile completeness, categories, services, business information, photos, posts, and review processes, then recommend improvements appropriate to your business.</p></details>
-          <details><summary>Do you guarantee first-page rankings?</summary><p>No. Search engines control rankings, and results depend on many changing factors. We focus on sound SEO practices, measurable improvements, and transparent communication rather than guaranteed positions.</p></details>
-          <details><summary>What do you need to start an SEO review?</summary><p>Share your website URL, business type, target service area, and main goal. If available, Google Search Console and Analytics data can help make the review more useful.</p></details>
-        </div>
-      </div>
-    </section>
+  window.setTimeout(() => {
+    document.getElementById("hero-eyebrow").textContent = slide.eyebrow;
+    heroTitle.innerHTML = slide.title;
+    document.getElementById("hero-text").textContent = slide.text;
+    heroImage.src = slide.image;
+    heroImage.alt = slide.alt;
 
-    <section class="section contact-section" id="contact">
-      <div class="container contact-grid">
-        <div class="contact-copy"><p class="eyebrow">LET'S TALK GROWTH</p><h2>Ready to make your next move <em>in search?</em></h2><p>Tell us a little about your business and what you want to improve. We'll get back to you to discuss the next steps.</p>
-          <div class="contact-method"><span class="contact-method-icon">↗</span><div><small>CALL OR WHATSAPP</small><a href="https://wa.me/923004947357" target="_blank" rel="noopener noreferrer">+92 300 4947357</a></div></div>
-          <div class="contact-method"><span class="contact-method-icon">@</span><div><small>EMAIL US</small><a href="mailto:catalystwing@gmail.com">catalystwing@gmail.com</a></div></div>
-          <div class="social-links"><a href="https://www.facebook.com/catalystwings" target="_blank" rel="noopener noreferrer">Facebook ↗</a><a href="https://www.instagram.com/catalystwing/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://www.pinterest.com/catalystwing/_profile/" target="_blank" rel="noopener noreferrer">Pinterest ↗</a></div>
-        </div>
-        <form class="contact-form" action="https://formsubmit.co/catalystwing@gmail.com" method="POST">
-          <h3>Tell us about your project</h3><p class="form-intro">Fields marked * are required.</p>
-          <input type="hidden" name="_subject" value="New SEO enquiry — Catalyst Wings">
-          <input type="hidden" name="_next" value="thank-you.html">
-          <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <div class="form-row"><label for="name">Your name *</label><input id="name" name="name" type="text" minlength="2" maxlength="80" autocomplete="name" required placeholder="e.g. Ali Khan"></div>
-          <div class="form-row"><label for="email">Email address *</label><input id="email" name="email" type="email" maxlength="254" autocomplete="email" required placeholder="you@company.com"></div>
-          <div class="form-row"><label for="website">Website (optional)</label><input id="website" name="website" type="url" maxlength="200" placeholder="https://yourwebsite.com"></div>
-          <div class="form-row"><label for="service">What do you need help with? *</label><select id="service" name="service" required><option value="">Choose a service</option><option>Local SEO</option><option>Google Business Profile Optimization</option><option>Technical SEO</option><option>SEO Content Strategy</option><option>On-Page SEO</option><option>SEO Audit</option><option>Other / Not sure yet</option></select></div>
-          <div class="form-row"><label for="message">Project details *</label><textarea id="message" name="message" rows="4" minlength="10" maxlength="3000" required placeholder="Tell us about your goals, location, and current challenges..."></textarea></div>
-          <button class="button button-primary submit-button" type="submit">Send your enquiry <span>↗</span></button>
-          <p class="privacy-note">Your details are used to respond to your enquiry. Please don't include passwords or sensitive personal information.</p>
-        </form>
-      </div>
-    </section>
-  </main>
+    document.getElementById("hero-proof-title").textContent = slide.proofTitle;
+    document.getElementById("hero-proof-text").textContent = slide.proofText;
+    document.getElementById("hero-card-title").textContent = slide.cardTitle;
+    document.getElementById("hero-card-text").textContent = slide.cardText;
+    document.getElementById("hero-card2-title").textContent = slide.card2Title;
+    document.getElementById("hero-card2-text").textContent = slide.card2Text;
 
-  <footer class="site-footer"><div class="container footer-top"><a class="footer-brand" href="#home"><img src="assets/catalyst-wings-logo.jpg" alt="Catalyst Wings logo"></a><p>Helping businesses become easier to find, trust, and choose.</p><a class="back-top" href="#home">Back to top ↑</a></div><div class="container footer-bottom"><span>© <span id="year"></span> Catalyst Wings. All rights reserved.</span><span>Local SEO · Technical SEO · Content Strategy</span></div></footer>
-  <script src="script.js"></script>
-</body>
-</html>
+    heroDots.forEach((dot, dotIndex) => {
+      const active = dotIndex === currentHeroSlide;
+      dot.classList.toggle("active", active);
+
+      if (active) {
+        dot.setAttribute("aria-current", "true");
+      } else {
+        dot.removeAttribute("aria-current");
+      }
+    });
+
+    if (heroCounter) {
+      heroCounter.innerHTML =
+        `0${currentHeroSlide + 1} <i>/</i> 0${heroSlides.length}`;
+    }
+
+    heroRoot.classList.remove("hero-changing");
+  }, 120);
+}
+
+function resetHeroTimer() {
+  if (heroTimer) window.clearInterval(heroTimer);
+
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    heroTimer = window.setInterval(
+      () => showHeroSlide(currentHeroSlide + 1),
+      6000
+    );
+  }
+}
+
+document.getElementById("hero-prev")?.addEventListener("click", () => {
+  showHeroSlide(currentHeroSlide - 1);
+  resetHeroTimer();
+});
+
+document.getElementById("hero-next")?.addEventListener("click", () => {
+  showHeroSlide(currentHeroSlide + 1);
+  resetHeroTimer();
+});
+
+heroDots.forEach(dot => {
+  dot.addEventListener("click", () => {
+    showHeroSlide(Number(dot.dataset.slide));
+    resetHeroTimer();
+  });
+});
+
+heroRoot?.addEventListener("mouseenter", () => {
+  if (heroTimer) window.clearInterval(heroTimer);
+});
+
+heroRoot?.addEventListener("mouseleave", resetHeroTimer);
+
+heroRoot?.addEventListener("focusin", () => {
+  if (heroTimer) window.clearInterval(heroTimer);
+});
+
+heroRoot?.addEventListener("focusout", resetHeroTimer);
+
+resetHeroTimer();
