@@ -1,0 +1,171 @@
+
+document.addEventListener("DOMContentLoaded", function () {
+  // =========================
+  // 1. MOBILE NAVIGATION
+  // =========================
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+      );
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
+      });
+    });
+  }
+
+  // =========================
+  // 2. HERO SLIDER
+  // Six images, every 3 seconds
+  // =========================
+  const slides = Array.from(document.querySelectorAll(".slide"));
+  const dots = Array.from(document.querySelectorAll(".slide-dot"));
+  const currentSlide = document.getElementById("slide-current");
+  const hero = document.querySelector(".hero");
+
+  let slideIndex = 0;
+  let sliderTimer = null;
+
+  function showSlide(index) {
+    if (!slides.length) return;
+
+    slideIndex = (index + slides.length) % slides.length;
+
+    slides.forEach(function (slide, i) {
+      slide.classList.toggle("active", i === slideIndex);
+    });
+
+    dots.forEach(function (dot, i) {
+      dot.classList.toggle("active", i === slideIndex);
+      dot.setAttribute("aria-pressed", String(i === slideIndex));
+    });
+
+    if (currentSlide) {
+      currentSlide.textContent = String(slideIndex + 1).padStart(2, "0");
+    }
+  }
+
+  function stopSlider() {
+    if (sliderTimer !== null) {
+      clearInterval(sliderTimer);
+      sliderTimer = null;
+    }
+  }
+
+  function startSlider() {
+    stopSlider();
+
+    if (
+      slides.length > 1 &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      sliderTimer = setInterval(function () {
+        showSlide(slideIndex + 1);
+      }, 3000);
+    }
+  }
+
+  dots.forEach(function (dot) {
+    dot.addEventListener("click", function () {
+      const selectedIndex = Number(dot.dataset.slide);
+
+      if (Number.isInteger(selectedIndex)) {
+        showSlide(selectedIndex);
+        startSlider();
+      }
+    });
+  });
+
+  if (hero) {
+    hero.addEventListener("mouseenter", stopSlider);
+    hero.addEventListener("mouseleave", startSlider);
+    hero.addEventListener("focusin", stopSlider);
+    hero.addEventListener("focusout", function (event) {
+      if (!hero.contains(event.relatedTarget)) {
+        startSlider();
+      }
+    });
+  }
+
+  showSlide(0);
+  startSlider();
+
+  // =========================
+  // 3. AUTOMATIC FOOTER YEAR
+  // =========================
+  const yearElement = document.getElementById("year");
+
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+
+  // =========================
+  // 4. FAQ ACCORDION
+  // Only one answer open at a time
+  // =========================
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  faqItems.forEach(function (item) {
+    item.addEventListener("toggle", function () {
+      if (item.open) {
+        faqItems.forEach(function (otherItem) {
+          if (otherItem !== item) {
+            otherItem.open = false;
+          }
+        });
+      }
+    });
+  });
+
+  // =========================
+  // 5. CONTACT FORM VALIDATION
+  // Email delivery is handled by
+  // the form service in index.html.
+  // =========================
+  const contactForm = document.querySelector(".contact-form");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (event) {
+      if (!contactForm.checkValidity()) {
+        event.preventDefault();
+        contactForm.reportValidity();
+        return;
+      }
+
+      const honeypot = contactForm.querySelector(
+        'input[name="_honey"]'
+      );
+
+      // Silently stop likely bot submissions.
+      if (honeypot && honeypot.value.trim() !== "") {
+        event.preventDefault();
+      }
+    });
+  }
+
+  // =========================
+  // 6. IMAGE FALLBACK
+  // Hide broken optional images
+  // =========================
+  document.querySelectorAll("img").forEach(function (img) {
+    img.addEventListener("error", function () {
+      if (img.classList.contains("logo-image")) {
+        console.warn("Logo image could not be loaded:", img.src);
+      } else {
+        img.classList.add("image-load-error");
+      }
+    });
+  });
+});
