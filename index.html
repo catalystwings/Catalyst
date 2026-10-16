@@ -1,141 +1,1330 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#082f57">
-  <title>Catalyst Wings | Local SEO & Digital Growth</title>
-  <meta name="description" content="Catalyst Wings helps local businesses improve Google visibility with local SEO, Google Business Profile optimization, technical SEO, and content strategy.">
-  <link rel="canonical" href="https://example.com/">
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="preconnect" href="https://images.unsplash.com">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Catalyst Wings | SEO & Digital Growth Agency</title>
+  <meta name="description" content="Catalyst Wings helps businesses grow through local SEO, Google Business Profile optimization, technical SEO, website optimization and content strategy.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#082b50">
+
+  <!-- Your logo is also the favicon -->
+  <link rel="icon" type="image/jpeg" href="./logo.jpg">
+  <link rel="apple-touch-icon" href="./logo.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <meta property="og:title" content="Catalyst Wings | SEO That Moves You Forward">
+  <meta property="og:description" content="Discover practical SEO strategies for better visibility, local discovery and business growth.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./logo.jpg">
+
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"ProfessionalService",
-    "name":"Catalyst Wings",
-    "description":"Local SEO, Google Business Profile optimization, technical SEO and content strategy.",
-    "telephone":"+92 300 4947357",
-    "email":"catalystwing@gmail.com",
-    "areaServed":"Pakistan",
-    "sameAs":[
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Catalyst Wings",
+    "email": "catalystwing@gmail.com",
+    "telephone": "+92 300 4947357",
+    "image": "./logo.jpg",
+    "description": "SEO services, local SEO, website optimization and Google Business Profile optimization.",
+    "sameAs": [
       "https://www.facebook.com/catalystwings",
       "https://www.instagram.com/catalystwing/",
       "https://www.pinterest.com/catalystwing/_profile/"
     ]
   }
   </script>
+
+  <style>
+    :root {
+      --navy: #082b50;
+      --navy-dark: #051b32;
+      --blue: #078fda;
+      --sky: #32b0f2;
+      --ink: #172f45;
+      --muted: #687b8c;
+      --light: #f2f7fb;
+      --line: #e0e8ef;
+      --white: #ffffff;
+      --radius: 5px;
+      --shadow: 0 20px 55px rgba(8,43,80,.09);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--ink);
+      line-height: 1.7;
+      background: #fff;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .container {
+      width: min(1160px, calc(100% - 42px));
+      margin: auto;
+    }
+
+    .announcement {
+      background: var(--navy-dark);
+      color: #dceaf6;
+      padding: 9px 15px;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: .04em;
+    }
+
+    .announcement a {
+      color: var(--sky);
+      font-weight: 700;
+      margin-left: 8px;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.97);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .logo {
+      display: block;
+      width: 138px;
+      flex-shrink: 0;
+    }
+
+    .logo img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 700;
+      color: #43566a;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: var(--blue); }
+
+    .nav-links .nav-button {
+      padding: 12px 17px;
+      background: var(--navy);
+      color: white;
+      border-radius: var(--radius);
+    }
+
+    .nav-links .nav-button:hover { background: var(--blue); }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      padding: 9px;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: var(--navy);
+      margin: 5px 0;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 660px;
+      height: min(760px, calc(100svh - 115px));
+      background: var(--navy);
+      color: white;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .slides, .slide, .hero-overlay {
+      position: absolute;
+      inset: 0;
+    }
+
+    .slide {
+      background-position: center;
+      background-size: cover;
+      opacity: 0;
+      transform: scale(1.04);
+      transition: opacity 1s ease, transform 4s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .hero-overlay {
+      background:
+        linear-gradient(90deg, rgba(3,24,46,.94), rgba(4,36,67,.76) 52%, rgba(4,36,67,.18)),
+        linear-gradient(0deg, rgba(3,24,46,.5), transparent 50%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      min-height: inherit;
+      height: 100%;
+      padding-top: 105px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      margin-bottom: 22px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 27px;
+      height: 2px;
+      background: currentColor;
+    }
+
+    .eyebrow.light { color: #8dd5ff; }
+
+    h1, h2, h3 {
+      font-family: Manrope, sans-serif;
+      line-height: 1.15;
+      letter-spacing: -.04em;
+    }
+
+    .hero h1 {
+      font-size: clamp(46px, 6.5vw, 78px);
+      max-width: 790px;
+      font-weight: 800;
+    }
+
+    .hero h1 span, .accent { color: var(--sky); }
+
+    .hero-description {
+      max-width: 560px;
+      color: #d5e2ee;
+      font-size: 15px;
+      margin: 25px 0 29px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      padding: 14px 19px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+    }
+
+    .btn-primary:hover { background: #0578b9; }
+
+    .btn-outline {
+      color: white;
+      border-color: #ffffff7a;
+      background: transparent;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 12px;
+      font-weight: 800;
+      border-bottom: 1px solid #b7c9d9;
+      padding-bottom: 7px;
+    }
+
+    .text-link span { color: var(--blue); font-size: 18px; }
+
+    .hero-bottom {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      width: 100%;
+      margin-top: auto;
+      padding: 25px 0 28px;
+    }
+
+    .slide-count {
+      color: #c8d7e4;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .slide-count strong { color: white; font-size: 15px; }
+
+    .slide-dots { display: flex; gap: 7px; }
+
+    .slide-dot {
+      width: 17px;
+      height: 3px;
+      border: 0;
+      background: #ffffff66;
+      cursor: pointer;
+    }
+
+    .slide-dot.active {
+      width: 33px;
+      background: var(--sky);
+    }
+
+    .hero-caption {
+      margin-left: auto;
+      font-size: 10px;
+      color: #d8e6f1;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .trust-bar { border-bottom: 1px solid var(--line); }
+
+    .trust-inner {
+      min-height: 82px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 17px;
+    }
+
+    .trust-label {
+      color: #8494a3;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+
+    .trust-item { font-size: 12px; font-weight: 700; }
+    .trust-item span { color: var(--blue); margin-right: 7px; font-size: 18px; }
+
+    .section { padding: 105px 0; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-image-wrap { position: relative; padding: 0 27px 28px 0; }
+
+    .about-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+
+    .image-note {
+      position: absolute;
+      left: -17px;
+      bottom: 0;
+      padding: 19px 22px;
+      background: white;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .image-note-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      background: #e7f5ff;
+      color: var(--blue);
+      font-size: 22px;
+    }
+
+    .image-note strong, .image-note small { display: block; }
+    .image-note strong { font-size: 13px; }
+    .image-note small { font-size: 11px; color: var(--muted); }
+
+    h2 { font-size: clamp(34px, 4vw, 48px); font-weight: 800; }
+
+    .section-heading { margin-bottom: 23px; }
+    .section-heading .eyebrow { margin-bottom: 18px; }
+
+    .lead {
+      color: #334c61;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .body-copy {
+      font-size: 13px;
+      line-height: 1.95;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .check-list {
+      list-style: none;
+      display: grid;
+      gap: 13px;
+      margin-top: 26px;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .check-list li::before {
+      content: "✓";
+      width: 21px;
+      height: 21px;
+      display: grid;
+      place-items: center;
+      background: #e6f5ff;
+      color: var(--blue);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .services-section { background: var(--light); }
+
+    .section-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 35px;
+      margin-bottom: 43px;
+    }
+
+    .section-top > p {
+      max-width: 360px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .service-card {
+      padding: 27px 25px;
+      min-height: 260px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .service-card.featured {
+      background: var(--navy);
+      color: white;
+      border-color: var(--navy);
+    }
+
+    .service-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 23px;
+    }
+
+    .service-meta small {
+      font-size: 9px;
+      color: #8596a6;
+      letter-spacing: .12em;
+      font-weight: 800;
+    }
+
+    .featured .service-meta small { color: #b1ccdf; }
+
+    .service-icon { font-size: 26px; color: var(--blue); }
+
+    .service-card h3 { font-size: 19px; margin-bottom: 13px; }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    .service-card.featured p { color: #c9d9e6; }
+
+    .service-link {
+      margin-top: auto;
+      padding-top: 13px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .featured .service-link { border-color: #ffffff35; }
+
+    .feature-band {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--navy);
+      color: white;
+    }
+
+    .feature-photo { min-height: 510px; }
+
+    .feature-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .feature-copy {
+      align-self: center;
+      padding: 70px clamp(30px, 6vw, 90px);
+    }
+
+    .feature-copy h2 { margin-bottom: 20px; }
+    .feature-copy > p { color: #c4d4e1; font-size: 13px; line-height: 1.9; }
+
+    .process-list { list-style: none; margin: 25px 0; }
+
+    .process-list li {
+      border-bottom: 1px solid #ffffff24;
+      padding: 12px 0;
+      color: #e2edf5;
+      font-size: 12px;
+    }
+
+    .process-list span {
+      color: var(--sky);
+      margin-right: 14px;
+      font-size: 10px;
+    }
+
+    .center-heading { text-align: center; margin-bottom: 48px; }
+    .center-heading .eyebrow { justify-content: center; }
+    .center-heading > p { max-width: 540px; margin: 16px auto 0; font-size: 13px; color: var(--muted); }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .process-card { padding: 0 25px; border-left: 1px solid var(--line); }
+    .process-card:first-child { border-left: 0; }
+
+    .process-number {
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .1em;
+    }
+
+    .process-card h3 { font-size: 19px; margin: 15px 0 12px; }
+    .process-card p { font-size: 12px; color: var(--muted); line-height: 1.9; }
+
+    .quote-band {
+      padding: 63px 20px;
+      text-align: center;
+      background: #eaf5fc;
+    }
+
+    .quote-band .quote-mark { color: var(--blue); font: 70px Georgia, serif; line-height: 1; }
+    .quote-band blockquote { max-width: 760px; margin: 10px auto; font: 800 clamp(25px, 3.3vw, 37px)/1.35 Manrope, sans-serif; color: var(--navy); letter-spacing: -.04em; }
+    .quote-band p { color: var(--muted); font-size: 12px; }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 80px;
+    }
+
+    .faq-intro p { color: var(--muted); font-size: 13px; line-height: 1.9; margin: 20px 0; }
+
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-item:first-child { border-top: 1px solid var(--line); }
+
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 20px 0;
+      font-size: 13px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: "+"; color: var(--blue); font-size: 22px; font-weight: 400; }
+    .faq-item[open] summary::after { content: "−"; }
+
+    .faq-item p {
+      font-size: 12px;
+      line-height: 1.9;
+      color: var(--muted);
+      padding: 0 25px 20px 0;
+    }
+
+    .contact-section {
+      background: var(--navy);
+      color: white;
+      padding: 95px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 75px;
+      align-items: start;
+    }
+
+    .contact-copy h2 { margin-bottom: 22px; }
+    .contact-copy > p { max-width: 400px; color: #c5d5e2; font-size: 13px; line-height: 1.9; margin-bottom: 28px; }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 22px 0;
+    }
+
+    .contact-icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #ffffff42;
+      color: var(--sky);
+    }
+
+    .contact-detail small {
+      display: block;
+      color: #a9c0d2;
+      font-size: 9px;
+      letter-spacing: .12em;
+    }
+
+    .contact-detail a { font-size: 13px; font-weight: 700; overflow-wrap: anywhere; }
+
+    .social-links { display: flex; gap: 10px; margin-top: 30px; }
+
+    .social-links a {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #ffffff4b;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 800;
+      transition: background .2s;
+    }
+
+    .social-links a:hover { background: var(--blue); }
+
+    .contact-form {
+      background: white;
+      color: var(--ink);
+      padding: 33px;
+      border-radius: var(--radius);
+      box-shadow: 0 20px 60px #00172c30;
+    }
+
+    .form-heading {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 17px;
+      margin-bottom: 23px;
+    }
+
+    .form-heading h3 { font-size: 17px; margin-bottom: 5px; }
+    .form-heading p { font-size: 10px; color: var(--muted); }
+
+    .form-row { margin-bottom: 16px; }
+
+    .form-row label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .form-row input, .form-row select, .form-row textarea {
+      width: 100%;
+      padding: 12px 13px;
+      border: 1px solid #dbe5ed;
+      border-radius: 3px;
+      background: #f8fafc;
+      color: var(--ink);
+      outline: none;
+      font-size: 12px;
+    }
+
+    .form-row input:focus, .form-row select:focus, .form-row textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px #078fda18;
+    }
+
+    .form-row textarea { min-height: 120px; resize: vertical; }
+    .submit-btn { width: 100%; }
+    .form-note { margin-top: 12px; text-align: center; font-size: 10px; color: var(--muted); }
+    .hp-field { position: absolute; left: -9999px; }
+
+    .footer {
+      background: var(--navy-dark);
+      color: white;
+    }
+
+    .footer-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 25px;
+      padding: 34px 0;
+      border-bottom: 1px solid #ffffff25;
+    }
+
+    .footer-logo { width: 110px; background: white; border-radius: 3px; overflow: hidden; }
+    .footer-main p { font-size: 11px; color: #c1d0dd; }
+
+    .footer-nav { display: flex; flex-wrap: wrap; gap: 19px; }
+    .footer-nav a { font-size: 11px; color: #d6e1ea; }
+    .footer-nav a:hover { color: var(--sky); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 19px 0;
+      color: #a8bac9;
+      font-size: 10px;
+    }
+
+    :focus-visible { outline: 3px solid #36b3f4; outline-offset: 3px; }
+
+    @media (max-width: 900px) {
+      .nav-links { gap: 15px; }
+      .about-grid { gap: 40px; }
+      .contact-grid, .faq-grid { gap: 40px; }
+      .feature-copy { padding: 50px 35px; }
+      .service-card { padding: 22px; }
+    }
+
+    @media (max-width: 700px) {
+      .container { width: calc(100% - 34px); }
+      .nav { min-height: 72px; }
+      .logo { width: 118px; }
+      .menu-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 15px 22px 24px;
+        background: white;
+        box-shadow: 0 15px 25px #082b5018;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 0; }
+      .nav-links .nav-button { padding: 12px 15px; margin-top: 8px; }
+      .hero { height: 690px; min-height: 610px; max-height: 790px; }
+      .hero-content { padding-top: 85px; }
+      .hero h1 { font-size: clamp(42px, 10vw, 61px); }
+      .hero-description { font-size: 13px; }
+      .hero-actions { align-items: flex-start; flex-direction: column; gap: 20px; }
+      .hero-caption { display: none; }
+      .trust-inner { padding: 20px 0; display: grid; grid-template-columns: 1fr 1fr; }
+      .trust-label { grid-column: 1 / -1; }
+      .section { padding: 75px 0; }
+      .about-grid, .feature-band, .faq-grid, .contact-grid { grid-template-columns: 1fr; }
+      .about-grid { gap: 45px; }
+      .about-image { height: 340px; }
+      .section-top { display: block; }
+      .section-top > p { margin-top: 20px; }
+      .services-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .service-card { padding: 20px 17px; min-height: 270px; }
+      .service-card h3 { font-size: 17px; }
+      .service-card p { font-size: 11px; }
+      .feature-photo { height: 320px; min-height: 320px; }
+      .feature-copy { padding: 55px 24px; }
+      .process-grid { grid-template-columns: 1fr 1fr; gap: 30px 0; }
+      .process-card { padding: 0 15px; }
+      .process-card:nth-child(odd) { border-left: 0; }
+      .faq-grid, .contact-grid { gap: 35px; }
+      .contact-form { padding: 24px 19px; }
+      .footer-main { align-items: flex-start; flex-direction: column; }
+      .footer-bottom { flex-direction: column; }
+    }
+
+    @media (max-width: 390px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: auto; }
+      .hero h1 { font-size: 41px; }
+      .process-card { padding: 0 10px; }
+      .trust-item { font-size: 10px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="#home" aria-label="Catalyst Wings home"><img src="assets/catalyst-wings-logo.jpg" alt="Catalyst Wings logo"></a>
-      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#process">Our Process</a><a href="#faqs">FAQs</a><a class="nav-cta" href="#contact">Get a free audit <span>↗</span></a>
+  <div class="announcement">
+    Smart SEO. Stronger visibility. Sustainable growth.
+    <a href="#contact">Let’s talk ↗</a>
+  </div>
+
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="#home" aria-label="Catalyst Wings homepage">
+        <img src="./logo.jpg" alt="Catalyst Wings logo">
+      </a>
+
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#process">Our Process</a>
+        <a href="#faq">FAQs</a>
+        <a class="nav-button" href="#contact">Contact Us ↗</a>
       </nav>
     </div>
   </header>
 
-  <main id="main">
-    <section class="hero section" id="home">
-      <div class="hero-glow"></div>
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="eyebrow-dot"></span> SEARCH VISIBILITY. REAL BUSINESS GROWTH.</p>
-          <h1>Get found by the customers <em>already looking</em> for you.</h1>
-          <p class="hero-text">Practical SEO strategies that help local businesses strengthen Google visibility, reach the right audience, and turn more searches into meaningful enquiries.</p>
-          <div class="hero-actions"><a class="button button-primary" href="#contact">Request a free SEO review <span>↗</span></a><a class="text-link" href="#services">Explore our services <span>→</span></a></div>
-          <div class="hero-proof"><div class="avatar-stack"><span>C</span><span>W</span><span>SEO</span></div><p><strong>Built around your business</strong><br><small>Clear priorities. Useful reporting. No empty promises.</small></p></div>
+  <main>
+    <section class="hero" id="home" aria-label="Catalyst Wings SEO services">
+      <div class="slides" aria-hidden="true">
+        <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=2000&q=85')"></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=2000&q=85')"></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=2000&q=85')"></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2000&q=85')"></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=2000&q=85')"></div>
+        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=2000&q=85')"></div>
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-content">
+        <div class="eyebrow light">Search visibility. Real momentum.</div>
+        <h1>Make your next<br><span>growth story</span><br>searchable.</h1>
+        <p class="hero-description">
+          SEO strategies designed to help your business get discovered,
+          build trust, and connect with the people searching for your services.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Get a Free Consultation <span>↗</span></a>
+          <a class="text-link" href="#services">Explore Our Services <span>→</span></a>
         </div>
-        <div class="hero-visual">
-          <img class="hero-image" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=85" alt="">
-          <div class="floating-card card-top"><span class="metric-icon">↗</span><div><strong>Visibility with purpose</strong><small>Strategy before shortcuts</small></div></div>
-          <div class="floating-card card-bottom"><span class="chart-icon">⌁</span><div><strong>Search-ready growth</strong><small>Local · Technical · Content</small></div></div>
-          <div class="hero-stamp"><span>SEO</span><small>SMARTER<br>SEARCH</small></div>
+
+        <div class="hero-bottom">
+          <div class="slide-count"><strong id="slide-current">01</strong> / 06</div>
+          <div class="slide-dots" aria-label="Select hero image">
+            <button class="slide-dot active" data-slide="0" aria-label="Show image 1"></button>
+            <button class="slide-dot" data-slide="1" aria-label="Show image 2"></button>
+            <button class="slide-dot" data-slide="2" aria-label="Show image 3"></button>
+            <button class="slide-dot" data-slide="3" aria-label="Show image 4"></button>
+            <button class="slide-dot" data-slide="4" aria-label="Show image 5"></button>
+            <button class="slide-dot" data-slide="5" aria-label="Show image 6"></button>
+          </div>
+          <span class="hero-caption">Built for long-term growth</span>
         </div>
       </div>
-      <div class="container hero-bottom"><span>LOCAL SEO</span><i></i><span>GOOGLE BUSINESS PROFILE</span><i></i><span>TECHNICAL SEO</span><i></i><span>CONTENT STRATEGY</span></div>
     </section>
 
-    <section class="section intro-section" id="about">
-      <div class="container intro-grid">
-        <div><p class="eyebrow">ABOUT CATALYST WINGS</p><h2>Good marketing starts with <em>being discoverable.</em></h2></div>
-        <div class="intro-content"><p>At Catalyst Wings, we help businesses build a stronger presence in search with clear, practical SEO work. We look at how customers search, how your website performs, and what can make your business easier to find and trust.</p><p>Every business has different goals. Our approach begins with understanding yours, identifying the most useful opportunities, and creating a realistic plan you can measure over time.</p><a class="text-link dark-link" href="#contact">Let's talk about your goals <span>→</span></a></div>
+    <section class="trust-bar" aria-label="Our SEO focus">
+      <div class="container trust-inner">
+        <span class="trust-label">YOUR GROWTH, OUR FOCUS</span>
+        <div class="trust-item"><span>↗</span> Search visibility</div>
+        <div class="trust-item"><span>⌖</span> Local discovery</div>
+        <div class="trust-item"><span>✳</span> Useful content</div>
+        <div class="trust-item"><span>⌁</span> Technical SEO</div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-image-wrap">
+          <img class="about-image"
+            src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1100&q=85"
+            alt="Professional workspace for planning digital marketing strategies"
+            loading="lazy">
+          <div class="image-note">
+            <span class="image-note-icon">✳</span>
+            <div><strong>Strategy first.</strong><small>Then measurable progress.</small></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="eyebrow">A little about us</div>
+          <h2 class="section-heading">Good SEO isn't a trick.<br>It's a <span class="accent">growth system.</span></h2>
+          <p class="lead">At Catalyst Wings, we help businesses build a stronger presence where customers are already searching.</p>
+          <p class="body-copy">
+            We bring local search, website optimization, technical improvements,
+            and helpful content together into a practical strategy shaped around
+            your audience and business goals.
+          </p>
+          <p class="body-copy">
+            Our focus is on sustainable improvements, clear priorities, and
+            transparent communication. We don't promise instant rankings.
+            We focus on doing the right work consistently.
+          </p>
+          <a class="text-link" href="#contact">Let's build your visibility <span>→</span></a>
+          <ul class="check-list">
+            <li>Practical SEO strategy built around your goals</li>
+            <li>Helpful, people-first website content</li>
+            <li>Clear recommendations and ongoing improvements</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <section class="section services-section" id="services">
       <div class="container">
-        <div class="section-heading"><div><p class="eyebrow">WHAT WE DO</p><h2>SEO that works on the <em>details.</em></h2></div><p>From your Google Business Profile to your website's technical foundations, we focus on the work that supports long-term search performance.</p></div>
-        <div class="service-grid">
-          <article class="service-card service-featured"><div class="service-number">01 / LOCAL SEARCH</div><div class="service-icon">⌖</div><h3>Local SEO</h3><p>Improve your local search presence with location-focused pages, relevant keyword research, consistent business details, and a plan built around nearby customers.</p><a href="#contact" aria-label="Ask about Local SEO">Discuss this service <span>↗</span></a><div class="card-orbit"></div></article>
-          <article class="service-card"><div class="service-number">02 / MAP VISIBILITY</div><div class="service-icon">◎</div><h3>Google Business Profile</h3><p>Strengthen your profile with accurate categories, useful service details, photos, posts, and a customer review response process.</p><a href="#contact">Discuss this service <span>↗</span></a></article>
-          <article class="service-card"><div class="service-number">03 / WEBSITE HEALTH</div><div class="service-icon">⌘</div><h3>Technical SEO</h3><p>Find and prioritize crawlability, indexing, page experience, internal linking, metadata, and other technical issues that can affect search.</p><a href="#contact">Discuss this service <span>↗</span></a></article>
-          <article class="service-card"><div class="service-number">04 / CONTENT</div><div class="service-icon">✳</div><h3>SEO Content Strategy</h3><p>Plan helpful service pages, location content, and FAQs around real customer questions instead of repetitive keyword stuffing.</p><a href="#contact">Discuss this service <span>↗</span></a></article>
-          <article class="service-card"><div class="service-number">05 / ON-PAGE</div><div class="service-icon">↗</div><h3>On-Page Optimization</h3><p>Improve page titles, headings, page structure, internal links, and content relevance so visitors and search engines understand each page.</p><a href="#contact">Discuss this service <span>↗</span></a></article>
-          <article class="service-card service-image-card"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=85" alt="Marketing team discussing a digital growth strategy" loading="lazy"><div class="image-card-overlay"><p>Not sure where to start?</p><h3>Let's find your biggest SEO opportunity.</h3><a href="#contact">Get in touch <span>↗</span></a></div></article>
+        <div class="section-top">
+          <div>
+            <div class="eyebrow">What we do</div>
+            <h2>SEO services with<br><span class="accent">purpose and precision.</span></h2>
+          </div>
+          <p>
+            From technical details to the bigger picture, we help make your
+            website easier to discover, understand, and trust.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-meta"><small>01 / LOCAL</small><span class="service-icon">⌖</span></div>
+            <h3>Local SEO</h3>
+            <p>Improve local search visibility and help nearby customers find your business when they need your services.</p>
+            <a class="service-link" href="#contact">Explore service <span>↗</span></a>
+          </article>
+
+          <article class="service-card featured">
+            <div class="service-meta"><small>02 / GOOGLE</small><span class="service-icon">◎</span></div>
+            <h3>Google Business Profile</h3>
+            <p>Improve your business information, services, categories, photos, and local search presence.</p>
+            <a class="service-link" href="#contact">Explore service <span>↗</span></a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-meta"><small>03 / WEBSITE</small><span class="service-icon">⌘</span></div>
+            <h3>Website Optimization</h3>
+            <p>Improve page structure, mobile usability, metadata, speed, and the experience visitors receive.</p>
+            <a class="service-link" href="#contact">Explore service <span>↗</span></a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-meta"><small>04 / CONTENT</small><span class="service-icon">✳</span></div>
+            <h3>SEO Content Strategy</h3>
+            <p>Plan relevant pages around search intent and the questions your potential customers ask.</p>
+            <a class="service-link" href="#contact">Explore service <span>↗</span></a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-meta"><small>05 / TECHNICAL</small><span class="service-icon">⌁</span></div>
+            <h3>Technical SEO</h3>
+            <p>Review indexing, crawlability, site structure, canonical URLs, and other technical foundations.</p>
+            <a class="service-link" href="#contact">Explore service <span>↗</span></a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-meta"><small>06 / STRATEGY</small><span class="service-icon">↗</span></div>
+            <h3>SEO Audit & Strategy</h3>
+            <p>Identify opportunities, prioritize improvements, and build a practical SEO roadmap for your website.</p>
+            <a class="service-link" href="#contact">Explore service <span>↗</span></a>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section authority-section" id="process">
-      <div class="container authority-grid">
-        <div class="authority-image-wrap"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1100&q=85" alt="Analytics dashboard on a computer screen" loading="lazy"><div class="image-note"><span class="note-mark">✓</span><p><strong>Evidence-led decisions</strong><br><small>Measure, learn, improve.</small></p></div></div>
-        <div class="authority-copy"><p class="eyebrow">A CLEARER WAY FORWARD</p><h2>Strategy you can understand. <em>Progress you can track.</em></h2><p>SEO is a process, not a switch. We prioritize useful improvements, explain what they do, and track relevant indicators so you can make informed decisions.</p>
-          <div class="process-list"><div><span>01</span><p><strong>Discover</strong><small>Understand your goals, audience, website, and current search presence.</small></p></div><div><span>02</span><p><strong>Prioritize</strong><small>Identify the most valuable opportunities and build a practical roadmap.</small></p></div><div><span>03</span><p><strong>Improve</strong><small>Work through on-page, local, technical, and content recommendations.</small></p></div><div><span>04</span><p><strong>Review</strong><small>Monitor available data and refine the strategy as results develop.</small></p></div></div>
+    <section class="feature-band">
+      <div class="feature-photo">
+        <img
+          src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1300&q=85"
+          alt="Business team collaborating on a marketing strategy"
+          loading="lazy">
+      </div>
+      <div class="feature-copy">
+        <div class="eyebrow light">Built around your business</div>
+        <h2>Less guesswork.<br><span class="accent">More direction.</span></h2>
+        <p>
+          SEO takes consistency. We focus on the work that makes sense for
+          your website, your market, and your customers.
+        </p>
+        <ul class="process-list">
+          <li><span>01</span> Understand your audience and goals</li>
+          <li><span>02</span> Prioritize important opportunities</li>
+          <li><span>03</span> Improve, measure, and keep learning</li>
+        </ul>
+        <a class="btn btn-outline" href="#process">See Our Process ↗</a>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="center-heading">
+          <div class="eyebrow">Our process</div>
+          <h2>A clear path from search<br>to <span class="accent">sustainable growth.</span></h2>
+          <p>Thoughtful work, a shared plan, and steady improvements at every stage.</p>
+        </div>
+        <div class="process-grid">
+          <article class="process-card">
+            <span class="process-number">STEP 01</span>
+            <h3>Discover</h3>
+            <p>Understand your business, target audience, competition, and current search visibility.</p>
+          </article>
+          <article class="process-card">
+            <span class="process-number">STEP 02</span>
+            <h3>Plan</h3>
+            <p>Set priorities and build a realistic roadmap for your website and local presence.</p>
+          </article>
+          <article class="process-card">
+            <span class="process-number">STEP 03</span>
+            <h3>Improve</h3>
+            <p>Work through agreed actions across technical SEO, content, and local search.</p>
+          </article>
+          <article class="process-card">
+            <span class="process-number">STEP 04</span>
+            <h3>Refine</h3>
+            <p>Review results, learn from progress, and adjust the strategy as your business evolves.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section trust-section">
-      <div class="container trust-grid"><div><p class="eyebrow">OUR COMMITMENT</p><h2>Trust is earned through <em>transparent work.</em></h2><p>We believe good SEO should be useful, honest, and aligned with your business. No guaranteed rankings or overnight-success claims—just a clear plan and work you can review.</p></div><div class="trust-points"><div><span>✓</span><div><h3>People-first content</h3><p>Useful information written for customers, not just algorithms.</p></div></div><div><span>✓</span><div><h3>Ethical SEO practices</h3><p>No promises of instant rankings or manipulative shortcuts.</p></div></div><div><span>✓</span><div><h3>Clear communication</h3><p>Understand priorities, next steps, and what is being measured.</p></div></div></div></div>
+    <section class="quote-band">
+      <div class="quote-mark">“</div>
+      <blockquote>Be the useful answer your customers are looking for.</blockquote>
+      <p>That’s where sustainable search visibility begins.</p>
     </section>
 
-    <section class="section faq-section" id="faqs">
-      <div class="container faq-grid"><div><p class="eyebrow">QUESTIONS, ANSWERED</p><h2>SEO doesn't have to feel <em>complicated.</em></h2><p>Here are answers to common questions. If your situation is different, send us a message and tell us what you need.</p><a class="text-link dark-link" href="#contact">Ask a question <span>→</span></a></div>
+    <section class="section" id="faq">
+      <div class="container faq-grid">
+        <div class="faq-intro">
+          <div class="eyebrow">Good questions</div>
+          <h2>Things you might<br><span class="accent">want to know.</span></h2>
+          <p>
+            Not sure where to start? Find answers to common questions below.
+            If you need more information, send us a message.
+          </p>
+          <a class="text-link" href="#contact">Ask us directly <span>→</span></a>
+        </div>
+
         <div class="faq-list">
-          <details><summary>What is local SEO?</summary><p>Local SEO helps a business become more relevant and discoverable for searches connected to its services and locations. It can include Google Business Profile improvements, location pages, reviews, local content, and consistent business information.</p></details>
-          <details><summary>How long does SEO take to show results?</summary><p>Timing varies with competition, website condition, location, and the work required. Some improvements can be noticed sooner, while meaningful organic growth often takes several months. No ethical provider can guarantee a specific ranking or date.</p></details>
-          <details><summary>Can you optimize my Google Business Profile?</summary><p>Yes. We can review profile completeness, categories, services, business information, photos, posts, and review processes, then recommend improvements appropriate to your business.</p></details>
-          <details><summary>Do you guarantee first-page rankings?</summary><p>No. Search engines control rankings, and results depend on many changing factors. We focus on sound SEO practices, measurable improvements, and transparent communication rather than guaranteed positions.</p></details>
-          <details><summary>What do you need to start an SEO review?</summary><p>Share your website URL, business type, target service area, and main goal. If available, Google Search Console and Analytics data can help make the review more useful.</p></details>
+          <details class="faq-item">
+            <summary>What does SEO do for my business?</summary>
+            <p>SEO helps search engines understand your website and helps people discover relevant pages. It can support organic visibility, relevant traffic, and enquiries over time.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How long does SEO take to show results?</summary>
+            <p>SEO is a long-term investment. Some improvements may appear sooner, while meaningful organic growth often takes several months. Timing depends on competition, your website, and the work required.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can you help with Google Maps visibility?</summary>
+            <p>We can improve your Google Business Profile and local SEO foundations. Google determines rankings, so no agency can honestly guarantee a specific Maps position.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you guarantee first-page rankings?</summary>
+            <p>No. Search results depend on many factors and change over time. We focus on sound SEO practices, clear priorities, and measurable improvements rather than unrealistic promises.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What information do you need to get started?</summary>
+            <p>Share your website, services, target locations, and business goals. If you don't have a website yet, tell us what your business does and who you want to reach.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How do I contact Catalyst Wings?</summary>
+            <p>You can use the contact form below, email catalystwing@gmail.com, or call/WhatsApp +92 300 4947357.</p>
+          </details>
         </div>
       </div>
     </section>
 
-    <section class="section contact-section" id="contact">
+    <section class="contact-section" id="contact">
       <div class="container contact-grid">
-        <div class="contact-copy"><p class="eyebrow">LET'S TALK GROWTH</p><h2>Ready to make your next move <em>in search?</em></h2><p>Tell us a little about your business and what you want to improve. We'll get back to you to discuss the next steps.</p>
-          <div class="contact-method"><span class="contact-method-icon">↗</span><div><small>CALL OR WHATSAPP</small><a href="https://wa.me/923004947357" target="_blank" rel="noopener noreferrer">+92 300 4947357</a></div></div>
-          <div class="contact-method"><span class="contact-method-icon">@</span><div><small>EMAIL US</small><a href="mailto:catalystwing@gmail.com">catalystwing@gmail.com</a></div></div>
-          <div class="social-links"><a href="https://www.facebook.com/catalystwings" target="_blank" rel="noopener noreferrer">Facebook ↗</a><a href="https://www.instagram.com/catalystwing/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://www.pinterest.com/catalystwing/_profile/" target="_blank" rel="noopener noreferrer">Pinterest ↗</a></div>
+        <div class="contact-copy">
+          <div class="eyebrow light">Let's talk growth</div>
+          <h2>Your next step starts with a <span class="accent">conversation.</span></h2>
+          <p>
+            Tell us about your business and what you want to improve.
+            Send an enquiry and we can discuss the right next step.
+          </p>
+
+          <div class="contact-detail">
+            <span class="contact-icon">✉</span>
+            <div><small>EMAIL US</small><a href="mailto:catalystwing@gmail.com">catalystwing@gmail.com</a></div>
+          </div>
+
+          <div class="contact-detail">
+            <span class="contact-icon">☎</span>
+            <div><small>CALL OR WHATSAPP</small><a href="https://wa.me/923004947357" target="_blank" rel="noopener noreferrer">+92 300 4947357</a></div>
+          </div>
+
+          <div class="social-links" aria-label="Social media">
+            <a href="https://www.facebook.com/catalystwings" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+            <a href="https://www.instagram.com/catalystwing/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">ig</a>
+            <a href="https://www.pinterest.com/catalystwing/_profile/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">p</a>
+          </div>
         </div>
-        <form class="contact-form" action="contact.php" method="post">
-          <h3>Tell us about your project</h3><p class="form-intro">Fields marked * are required.</p>
-          <input type="hidden" name="csrf_token" id="csrf-token" value="">
-          <div class="form-row"><label for="name">Your name *</label><input id="name" name="name" type="text" minlength="2" maxlength="80" autocomplete="name" required placeholder="e.g. Ali Khan"></div>
-          <div class="form-row"><label for="email">Email address *</label><input id="email" name="email" type="email" maxlength="254" autocomplete="email" required placeholder="you@company.com"></div>
-          <div class="form-row"><label for="website">Website (optional)</label><input id="website" name="website" type="url" maxlength="200" placeholder="https://yourwebsite.com"></div>
-          <div class="form-row"><label for="service">What do you need help with? *</label><select id="service" name="service" required><option value="">Choose a service</option><option>Local SEO</option><option>Google Business Profile Optimization</option><option>Technical SEO</option><option>SEO Content Strategy</option><option>On-Page SEO</option><option>SEO Audit</option><option>Other / Not sure yet</option></select></div>
-          <div class="form-row"><label for="message">Project details *</label><textarea id="message" name="message" rows="4" minlength="10" maxlength="3000" required placeholder="Tell us about your goals, location, and current challenges..."></textarea></div>
-          <div class="hp-field" aria-hidden="true"><label for="company">Leave this field empty</label><input id="company" name="company" tabindex="-1" autocomplete="off"></div>
-          <button class="button button-primary submit-button" type="submit">Send your enquiry <span>↗</span></button>
-          <p class="privacy-note">Your details are used to respond to your enquiry. Please don't include passwords or sensitive personal information.</p>
+
+        <!-- FormSubmit sends enquiries to your email.
+             The first submission requires email activation.
+             Never put your email password in this HTML. -->
+        <form class="contact-form"
+              action="https://formsubmit.co/catalystwing@gmail.com"
+              method="POST">
+
+          <input type="hidden" name="_subject" value="New SEO enquiry - Catalyst Wings">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="true">
+
+          <div class="form-heading">
+            <h3>Send us an enquiry</h3>
+            <p>Fields marked * are required.</p>
+          </div>
+
+          <div class="form-row">
+            <label for="name">Your name *</label>
+            <input id="name" name="name" type="text" required maxlength="100"
+                   autocomplete="name" placeholder="Enter your name">
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email address *</label>
+            <input id="email" name="email" type="email" required maxlength="254"
+                   autocomplete="email" placeholder="you@example.com">
+          </div>
+
+          <div class="form-row">
+            <label for="website">Website (optional)</label>
+            <input id="website" name="website" type="url" maxlength="300"
+                   placeholder="https://yourwebsite.com">
+          </div>
+
+          <div class="form-row">
+            <label for="service">Which service do you need?</label>
+            <select id="service" name="service">
+              <option value="">Choose a service</option>
+              <option>Local SEO</option>
+              <option>Google Business Profile Optimization</option>
+              <option>Website Optimization</option>
+              <option>SEO Content Strategy</option>
+              <option>Technical SEO</option>
+              <option>SEO Audit & Strategy</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="message">Tell us about your goals *</label>
+            <textarea id="message" name="message" required minlength="10"
+                      maxlength="4000" placeholder="How can we help your business?"></textarea>
+          </div>
+
+          <!-- Spam honeypot: real visitors should leave this empty -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="company">Leave this field empty</label>
+            <input id="company" type="text" name="_honey" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button class="btn btn-primary submit-btn" type="submit">
+            Send Your Enquiry <span>↗</span>
+          </button>
+
+          <p class="form-note">
+            Your details are submitted to our email service so we can respond to your enquiry.
+          </p>
         </form>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer"><div class="container footer-top"><a class="footer-brand" href="#home"><img src="assets/catalyst-wings-logo.jpg" alt="Catalyst Wings logo"></a><p>Helping businesses become easier to find, trust, and choose.</p><a class="back-top" href="#home">Back to top ↑</a></div><div class="container footer-bottom"><span>© <span id="year"></span> Catalyst Wings. All rights reserved.</span><span>Local SEO · Technical SEO · Content Strategy</span></div></footer>
+  <footer class="footer">
+    <div class="container footer-main">
+      <a class="footer-logo" href="#home" aria-label="Catalyst Wings home">
+        <img src="./logo.jpg" alt="Catalyst Wings logo">
+      </a>
+      <p>Helping businesses build lasting search visibility.</p>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#faq">FAQs</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> Catalyst Wings. All rights reserved.</span>
+      <span>Built with purpose. Optimized for people.</span>
+    </div>
+  </footer>
+
   <script>
-  fetch('form-token.php', {credentials:'same-origin'})
-    .then(r => { if (!r.ok) throw new Error('Token unavailable'); return r.json(); })
-    .then(data => { document.getElementById('csrf-token').value = data.csrf_token; })
-    .catch(() => {});
+    // Mobile navigation
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+      );
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
+      });
+    });
+
+    // Six-image hero slider, changing every 3 seconds
+    const slides = [...document.querySelectorAll(".slide")];
+    const dots = [...document.querySelectorAll(".slide-dot")];
+    const currentSlide = document.getElementById("slide-current");
+    const hero = document.querySelector(".hero");
+    let slideIndex = 0;
+    let sliderTimer;
+
+    function showSlide(index) {
+      slideIndex = (index + slides.length) % slides.length;
+
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === slideIndex);
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === slideIndex);
+        dot.setAttribute("aria-pressed", String(i === slideIndex));
+      });
+
+      currentSlide.textContent = String(slideIndex + 1).padStart(2, "0");
+    }
+
+    function startSlider() {
+      clearInterval(sliderTimer);
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        sliderTimer = setInterval(() => showSlide(slideIndex + 1), 3000);
+      }
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener("click", () => {
+        showSlide(Number(dot.dataset.slide));
+        startSlider();
+      });
+    });
+
+    // Pause automatic changes while the pointer is over the hero.
+    hero.addEventListener("mouseenter", () => clearInterval(sliderTimer));
+    hero.addEventListener("mouseleave", startSlider);
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Keep the FAQ list compact: only one answer open at a time.
+    document.querySelectorAll(".faq-item").forEach(item => {
+      item.addEventListener("toggle", () => {
+        if (item.open) {
+          document.querySelectorAll(".faq-item").forEach(other => {
+            if (other !== item) other.open = false;
+          });
+        }
+      });
+    });
+
+    startSlider();
   </script>
-  <script src="script.js"></script>
 </body>
 </html>
