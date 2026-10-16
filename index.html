@@ -239,7 +239,7 @@ section{padding:65px 0}
     <a href="https://www.pinterest.com/catalystwing/_profile/" target="_blank" rel="noopener">Pinterest</a>
    </div>
   </div>
-  <form id="cf" class="rv" autocomplete="on">
+  <form id="cf" class="rv" autocomplete="on" action="https://formsubmit.co/catalystwing@gmail.com" method="POST" target="_blank">
    <div class="f2">
     <input type="text" name="name" placeholder="Your Name *" required maxlength="80">
     <input type="email" name="email" placeholder="Your Email *" required maxlength="100">
@@ -288,17 +288,24 @@ document.querySelectorAll('.q button').forEach(b=>b.onclick=()=>{const q=b.paren
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('[data-n]').forEach(c=>{const m=+c.dataset.n;let v=0;const s=setInterval(()=>{v+=Math.ceil(m/50);if(v>=m){v=m;clearInterval(s)}c.textContent=v+(m>=100?'+':'')},30)});io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.rv').forEach(e=>io.observe(e));
 document.getElementById('yr').textContent=new Date().getFullYear();
-// Contact form -> email (FormSubmit)
+// Contact form -> email (FormSubmit) with automatic fallback
 document.getElementById('cf').addEventListener('submit',async e=>{
  e.preventDefault();const f=e.target,m=document.getElementById('msg'),b=document.getElementById('sb');
  if(f._honey.value)return;
  b.disabled=true;b.textContent='Sending...';
+ let ok=false,info='';
  try{
   const r=await fetch('https://formsubmit.co/ajax/catalystwing@gmail.com',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)});
   const d=await r.json();
-  if(r.ok&&(d.success===true||d.success==='true')){m.className='ok';m.textContent='✅ Thank you! Your message has been sent. We will contact you soon.';f.reset()}
-  else throw 0;
- }catch(x){m.className='er';m.innerHTML='❌ Could not send. Please email <a href="mailto:catalystwing@gmail.com"><u>catalystwing@gmail.com</u></a> or WhatsApp us.'}
+  ok=r.ok&&(d.success===true||d.success==='true');
+  info=d.message||'';
+ }catch(x){}
+ if(ok){m.className='ok';m.textContent='✅ Thank you! Your message has been sent. We will contact you soon.';f.reset()}
+ else{
+  // fallback: normal form post (works everywhere, also handles first-time activation)
+  m.className='ok';m.textContent='✅ Almost done! A confirmation page opened in a new tab. If this is your first message, please activate the form from the email sent to catalystwing@gmail.com.';
+  HTMLFormElement.prototype.submit.call(f);
+ }
  m.style.display='block';b.disabled=false;b.textContent='Send Message';
 });
 </script>
